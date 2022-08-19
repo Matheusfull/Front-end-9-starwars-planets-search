@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Context from '../context/Context';
 
 function PlanetList() {
@@ -14,9 +14,39 @@ function PlanetList() {
   }, []);
   console.log(info); */
   const { info } = useContext(Context);
-  console.log(info);
+  const [planetSearch, setPlanetSearch] = useState({
+    filterByName: {
+      name: '',
+    },
+  });
+  console.log(planetSearch.filterByName);
+
+  const handleChange = ({ target }) => {
+    setPlanetSearch({
+      ...planetSearch,
+      filterByName: {
+        name: target.value,
+      },
+    });
+  };
+
+  const planetFiltred = info.filter((planet) => (
+    planet.name.toLowerCase().includes(planetSearch.filterByName.name.toLowerCase())));
+  console.log(planetFiltred);
+
   return (
     <div>
+      <label htmlFor="search">
+        <input
+          type="text"
+          name="search"
+          id="search"
+          placeholder="digite o planeta"
+          onChange={ handleChange }
+          value={ planetSearch.name }
+          data-testid="name-filter"
+        />
+      </label>
       <table>
         <thead>
           <tr>
@@ -36,7 +66,7 @@ function PlanetList() {
           </tr>
         </thead>
         <tbody>
-          {info.map((planet) => (
+          {planetFiltred.map((planet) => (
             <tr key={ planet.name }>
               <td>{planet.climate}</td>
               <td>{planet.created}</td>
@@ -67,4 +97,12 @@ export default PlanetList;
 2 - Vamos criar agora para cada planeta uma linha e para cada informção de cada planeta, uma coluna.
 -- Fazemos um map dos planetas. Para cada planeta, vai ser um tr e com isso será uma linha.
 -- Para cada linha, que é cada planeta e que é cada índice do array que vem do map, vamos colocar as colunas correspondentes.
+*/
+
+/*
+Requisito 2:
+1 - Vamos fazer a label
+2 - Controlar o campo de pesquisa
+3 - filtrar os planetas de acordo com esse valor controlado
+--Nessa parte vamos fazer um filter dos planetas vindo da API e retornar somente aqueles que tiverem o mesmo nome digitado no input ou retornar todos, caso não digite nada. Para fazer isso é melhor o filter, pois se não digitarmos nada, vem a lista completa.
 */
