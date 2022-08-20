@@ -31,7 +31,7 @@ function PlanetList() {
     });
   };
 
-  console.log(info, filterByNumericValues);
+  // console.log(info, filterByNumericValues);
 
   /*  const signal = () => {
     if (filterByNumericValues.comparison === 'menor que') return '<';
@@ -49,7 +49,7 @@ function PlanetList() {
         return +planetFilter[column] === +value;
       }));
 
-  console.log(planetFiltred);
+  // console.log(planetFiltred);
 
   return (
     <div>

@@ -5,6 +5,13 @@ import Context from './Context';
 function Provider({ children }) {
   const [info, setInfo] = useState([]);
   const [filterByNumericValues, setFilterByNumericValues] = useState([]);
+  const [option, setOption] = useState([
+    'orbital_period',
+    'population',
+    'diameter',
+    'rotation_period',
+    'surface_water',
+  ]);
 
   useEffect(() => {
     const getPlanets = async () => {
@@ -16,7 +23,11 @@ function Provider({ children }) {
     getPlanets();
   }, []);
 
-  const arrayPlanets = { info, filterByNumericValues, setFilterByNumericValues };
+  const arrayPlanets = { info,
+    filterByNumericValues,
+    setFilterByNumericValues,
+    option,
+    setOption };
 
   return (
     <Context.Provider value={ arrayPlanets }>

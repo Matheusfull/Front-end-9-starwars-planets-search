@@ -2,7 +2,10 @@ import React, { useContext, useState } from 'react';
 import Context from '../context/Context';
 
 function NumberFilter() {
-  const { filterByNumericValues, setFilterByNumericValues } = useContext(Context);
+  const { filterByNumericValues,
+    setFilterByNumericValues,
+    option,
+    setOption } = useContext(Context);
   const [valueSelected, setValueSelected] = useState(
     {
       column: 'population',
@@ -12,7 +15,7 @@ function NumberFilter() {
 
   );
 
-  /* console.log(valueSelected); */
+  /* console.log(option); */
 
   // const [stateColumn, setSatteColumn] = useState('population');
 
@@ -47,20 +50,36 @@ function NumberFilter() {
     setFilterByNumericValues([
       ...filterByNumericValues, valueSelected,
     ]);
+    /* setOption(
+      option.splice(0, option.indexOf(valueSelected.column)),
+    ); */
+    // setOption((anterior) => console.log(anterior)); Essa função dentro do set, desse modo faz consolar o que tem dentro.
+    setOption((anterior) => anterior.filter((index) => index !== valueSelected.column));
   };
 
-  // console.log(filterByNumericValues);
+  // console.log(option);
 
   return (
     <div>
-      <select data-testid="column-filter" onChange={ handleChange1 }>
-        <option>population</option>
+      <select
+        data-testid="column-filter"
+        value={ valueSelected.column }
+        onChange={ handleChange1 }
+      >
+        { option.map((optionFilter) => (
+          <option key={ optionFilter } value={ optionFilter }>{optionFilter}</option>
+        ))}
+        {/* <option>population</option>
         <option>orbital_period</option>
         <option>diameter</option>
         <option>rotation_period</option>
-        <option>surface_water</option>
+        <option>surface_water</option> */}
       </select>
-      <select data-testid="comparison-filter" onChange={ handleChange2 }>
+      <select
+        data-testid="comparison-filter"
+        value={ valueSelected.comparison }
+        onChange={ handleChange2 }
+      >
         <option>maior que</option>
         <option>menor que</option>
         <option>igual a</option>
@@ -83,3 +102,10 @@ function NumberFilter() {
 }
 
 export default NumberFilter;
+
+/*
+Requisito 6 -
+1 - tirar o column escolhido das options
+-- ao clicar no filtrar, o option escolhido deve sair da opções de filtro.
+2 - renderizar na tela o filtro escolhido, com o column, comparison e value.
+*/
