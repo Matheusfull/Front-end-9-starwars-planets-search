@@ -4,6 +4,7 @@ import Context from './Context';
 
 function Provider({ children }) {
   const [info, setInfo] = useState([]);
+  const [filterByNumericValues, setFilterByNumericValues] = useState([]);
 
   useEffect(() => {
     const getPlanets = async () => {
@@ -15,7 +16,7 @@ function Provider({ children }) {
     getPlanets();
   }, []);
 
-  const arrayPlanets = { info };
+  const arrayPlanets = { info, filterByNumericValues, setFilterByNumericValues };
 
   return (
     <Context.Provider value={ arrayPlanets }>

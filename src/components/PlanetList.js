@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import Context from '../context/Context';
+import NumberFilter from './NumberFilter';
 
 function PlanetList() {
   /*  const [info, setInfo] = useState([]);
@@ -13,13 +14,13 @@ function PlanetList() {
     getPlanets();
   }, []);
   console.log(info); */
-  const { info } = useContext(Context);
+  const { info, filterByNumericValues } = useContext(Context);
   const [planetSearch, setPlanetSearch] = useState({
     filterByName: {
       name: '',
     },
   });
-  console.log(planetSearch.filterByName);
+  /* console.log(planetSearch.filterByName); */
 
   const handleChange = ({ target }) => {
     setPlanetSearch({
@@ -30,8 +31,24 @@ function PlanetList() {
     });
   };
 
-  const planetFiltred = info.filter((planet) => (
-    planet.name.toLowerCase().includes(planetSearch.filterByName.name.toLowerCase())));
+  console.log(info, filterByNumericValues);
+
+  /*  const signal = () => {
+    if (filterByNumericValues.comparison === 'menor que') return '<';
+    if (filterByNumericValues.comparison === 'igual a') return '=';
+    if (filterByNumericValues.comparison === 'maior que') return '>';
+  }; */
+
+  const planetFiltred = info
+    .filter((planet) => planet.name.toLowerCase()
+      .includes(planetSearch.filterByName.name.toLowerCase()))
+    .filter((planetFilter) => filterByNumericValues
+      .every(({ column, comparison, value }) => {
+        if (comparison === 'menor que') { return +planetFilter[column] < +value; }
+        if (comparison === 'maior que') { return +planetFilter[column] > +value; }
+        return +planetFilter[column] === +value;
+      }));
+
   console.log(planetFiltred);
 
   return (
@@ -47,6 +64,7 @@ function PlanetList() {
           data-testid="name-filter"
         />
       </label>
+      <NumberFilter />
       <table>
         <thead>
           <tr>
@@ -105,4 +123,11 @@ Requisito 2:
 2 - Controlar o campo de pesquisa
 3 - filtrar os planetas de acordo com esse valor controlado
 --Nessa parte vamos fazer um filter dos planetas vindo da API e retornar somente aqueles que tiverem o mesmo nome digitado no input ou retornar todos, caso não digite nada. Para fazer isso é melhor o filter, pois se não digitarmos nada, vem a lista completa.
+*/
+
+/*
+Reaquisito 3:
+1 - fazer os locais para escrever as nformações
+2 - obter algum modo de salvar no estado essas informações
+3 - obter algum meio de renderizar os planetas com essas informações.
 */
