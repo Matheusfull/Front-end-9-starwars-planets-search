@@ -109,3 +109,16 @@ Requisito 6 -
 -- ao clicar no filtrar, o option escolhido deve sair da opções de filtro.
 2 - renderizar na tela o filtro escolhido, com o column, comparison e value.
 */
+
+/*
+Requisito 3 - Vamos fazer uma pesquisa com campos controlados, para isso precisamos do 'estado', das funções que controlam esses estados e um lugar para renderizar o que está no contronle.
+1 - Teremos filterByNumericValues - para ter as três opções de escolhas (column, comparison e value)
+    setFilterByNumericValues - função para atualizar o estado acima.
+    option - Tem as opções 'orbital_period','population','diameter','rotation_period' e 'surface_water'
+    setOption - para atualizar o estado acima.
+    valueSelected - para os inputs controlados
+    setValueSelected - para atualizar o estado acima.
+
+2 - Já nas funções handleChange atualizaremos as chaves correspondentes ao esta local conforme o que for digitado nos inputs. Com isso, as chaves terão valores que podem ser renderizados
+3 - Ao clicar em filtrar, a função vai enviar para o context tanto o estado desse componente, que são os campos controlados, quanto o valor de filterByNumericValues que tem o nome digitado para buscar um planeta.
+*/

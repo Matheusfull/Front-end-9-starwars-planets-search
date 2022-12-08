@@ -110,19 +110,27 @@ function PlanetList() {
 export default PlanetList;
 
 /*
+Requisito 1
 1 - Cria a primeira parte da tabela, que seria os nomes das colunas
 
 2 - Vamos criar agora para cada planeta uma linha e para cada informção de cada planeta, uma coluna.
--- Fazemos um map dos planetas. Para cada planeta, vai ser um tr e com isso será uma linha.
--- Para cada linha, que é cada planeta e que é cada índice do array que vem do map, vamos colocar as colunas correspondentes.
+1 - Vamos receber os dados da API pelo info vindo do useContext(Context)
+2 - Fazemos um map dos planetas. Para cada planeta, vai ser um tr e com isso será uma linha.
+Para cada linha, que é cada planeta e que é cada índice do array que vem do map, vamos colocar as colunas correspondentes.
 */
 
 /*
-Requisito 2:
-1 - Vamos fazer a label
-2 - Controlar o campo de pesquisa
-3 - filtrar os planetas de acordo com esse valor controlado
---Nessa parte vamos fazer um filter dos planetas vindo da API e retornar somente aqueles que tiverem o mesmo nome digitado no input ou retornar todos, caso não digite nada. Para fazer isso é melhor o filter, pois se não digitarmos nada, vem a lista completa.
+Requisito 2: Vamos ter um campo controlado, logo precisaremos de um estado, a função para controlar esse estado e onde essa mudança vai aparecer na tela.
+1 - Vamos ter um estado, não do método tradicional, mas sim, com o useState no formato:
+ filterByName: {
+      name: '',
+    },     o que foi indicado no requisito.
+2 - Vamos ter a função que pegará, atrvés do target, o que foi digitado no input e guardará. Vamos precisar então dos dois parâmetro do useState. O planetSearch que é o nome do estado e o setplanetSearch que atualiza o estado.
+
+3 - Vamos pegar todos os planetas que vêm da API, e filtrar cada um dele pelo nome em minúsculo e retornar aqueles que incluem o nome em minúsculo do planeta que foi digitado no input.Retornará todos, caso não digite nada. Para fazer isso é melhor o filter, pois se não digitarmos nada, vem a lista completa.
+
+4 - Pegaremos essa lista e renderizaremos, através de um map, no corpo da tabela.
+
 */
 
 /*

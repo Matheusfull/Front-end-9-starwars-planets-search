@@ -13,5 +13,5 @@ function App() {
 export default App;
 
 /*
-1 - Vamos prover o estados para os componentes.
+1 - Vamos prover o estados para os componentes, que no caso será o componente Table
 */

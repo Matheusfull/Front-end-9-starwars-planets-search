@@ -9,3 +9,7 @@ function Table() {
 }
 
 export default Table;
+
+/*
+Requisito 1 - Como o req quer que a requisição seja feita num componente fora de Table, criaremos então um só para fazer a requisição.
+*/
