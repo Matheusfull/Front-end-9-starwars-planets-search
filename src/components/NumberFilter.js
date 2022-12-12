@@ -121,4 +121,23 @@ Requisito 3 - Vamos fazer uma pesquisa com campos controlados, para isso precisa
 
 2 - Já nas funções handleChange atualizaremos as chaves correspondentes ao esta local conforme o que for digitado nos inputs. Com isso, as chaves terão valores que podem ser renderizados
 3 - Ao clicar em filtrar, a função vai enviar para o context tanto o estado desse componente, que são os campos controlados, quanto o valor de filterByNumericValues que tem o nome digitado para buscar um planeta.
+const handleClick = () => {
+    setFilterByNumericValues([ valueSelected ]);
+  };
+*/
+/*
+Requisito 4
+Nossos planetas estão filtrados, porém queremos filtrar ainda mais. Então vamos pegar os que já foram filtrado e colocar no estado info para que esse estado não contenha mais todos os planetas que vêm da API, mas sim, somente aqueles que já foram filtrados.
+Então na função de filtrar vamos fazer esse lógica.
+const handleClick = () => {
+    setFilterByNumericValues([
+      ...filterByNumericValues, valueSelected,
+    ]);
+  };
+*/
+
+/*
+Requisito 6
+Parra não ter filtros repetidos, basta fazer uma hof de tal modo que deixa nas option somente as column que não foram selecionadas.
+ setOption((anterior) => anterior.filter((index) => index !== valueSelected.column));
 */

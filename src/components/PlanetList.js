@@ -64,6 +64,7 @@ function PlanetList() {
           data-testid="name-filter"
         />
       </label>
+      {/* filtro */}
       <NumberFilter />
       <table>
         <thead>
@@ -138,4 +139,12 @@ Reaquisito 3:
 1 - fazer os locais para escrever as nformações
 2 - obter algum modo de salvar no estado essas informações
 3 - obter algum meio de renderizar os planetas com essas informações.
+*/
+
+/*
+Requisito 4
+Aqui vamos criar mais hofs.
+1 - Antes os planetas filtrados eram apenas pelo campo controlado. Ou seja, vinha uma porrada de planetas e a gente poderia filtrar pegando só os que têm o mesmo nome de digitamos no input. A hof era assim: const planetFiltred = info.filter((planet) => (
+    planet.name.toLowerCase().includes(planetSearch.filterByName.name.toLowerCase())));
+2 - Agora a brincadeira é outra. Precisamos filtrar todos aquels que têm as seguintes informações que passamos nos inputs column, comparison, value.
 */
