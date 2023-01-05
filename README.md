@@ -9,7 +9,7 @@
 <details>
   <summary><strong>:memo: Habilidades</strong></summary><br />
 
-  Neste projeto, foi solidificado os seguintes conhecimentos:
+  Neste projeto, foram solidificados os seguintes conhecimentos:
 
   * Utilizar a _Context API_ do **React** para gerenciar estado.
   * Utilizar o _React Hook useState_;
