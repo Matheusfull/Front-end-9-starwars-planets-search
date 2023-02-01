@@ -38,9 +38,9 @@
 
   1. Clone o repositório
 
-  - Use o comando: `git clone git@github.com:Matheusfull/Front-end-9-starwars-planets-search.git`.
+  - Use o comando: `git clone git@github.com:Matheusfull/Project-15-Front-end-starwars-planets-search.git`.
   - Entre na pasta do repositório que você acabou de clonar:
-    - `cd Front-end-9-starwars-planets-search`
+    - `cd Project-15-Front-end-starwars-planets-search`
 
   2. Instale as dependências
 
